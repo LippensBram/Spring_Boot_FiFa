@@ -7,9 +7,9 @@ import domain.WedstrijdTicket;
 
 public interface VoetbalService {
 
-	public List<String> getStadiumList();
+	public List<Stadium> getStadiumList();
 
-	public List<WedstrijdTicket> getWedstrijdenByStadium(String stadium);
+	public List<WedstrijdTicket> getWedstrijdenByStadium(Stadium stadium);
 
 	public WedstrijdTicket getWedstrijd(String id);
 

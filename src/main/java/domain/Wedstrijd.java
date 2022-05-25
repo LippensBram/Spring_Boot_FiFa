@@ -2,6 +2,7 @@ package domain;
 //Een wedstrijd
 
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 public class Wedstrijd {
 
@@ -29,7 +30,7 @@ public class Wedstrijd {
     }
 
     public String getDag() {
-        return date.getDayOfMonth() + date.getMonth().toString();
+        return String.format("%d %s",date.getDayOfMonth(),date.getMonth().toString().toLowerCase());
     }
 
     public int getUur() {

@@ -1,11 +1,9 @@
 package domain;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 public class AankoopTicket {
+	@NotEmpty
 	@Email
 	private String email;
 	@Min(1)
@@ -48,5 +46,5 @@ public class AankoopTicket {
 	public void setVoetbalCode2(int voetbalCode2) {
 		this.voetbalCode2 = voetbalCode2;
 	}
-	
+
 }

@@ -10,8 +10,7 @@ public class EmailConstraintValidator
     public void initialize(ValidEmail constraintAnnotation) {}
 
     @Override
-    public boolean isValid(String value, 
-                                 ConstraintValidatorContext context) {
+    public boolean isValid(String value, ConstraintValidatorContext context) {
         
         return (value.contains("@"));
     }

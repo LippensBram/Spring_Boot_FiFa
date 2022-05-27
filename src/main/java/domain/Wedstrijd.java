@@ -1,16 +1,24 @@
 package domain;
 //Een wedstrijd
 
+import service.StadiumDao;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Locale;
-
+@Entity
 public class Wedstrijd {
-
+    @Id
+    @Column(name = "id", nullable = false)
     private String id; //unieke sleutel
 
     private String[] landen; //2 landen van de wedstrijd
     
     private LocalDateTime date;
+
+//    @OneToOne
+//    private WedstrijdTicket wedstrijdTicket;
 
     public Wedstrijd() {
     }
@@ -44,4 +52,7 @@ public class Wedstrijd {
     {
         return String.format("%s vs %s op %d-11", landen[0], landen[1], getDag()); 
     }
+
+
+
 }

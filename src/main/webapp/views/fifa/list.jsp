@@ -13,7 +13,7 @@
 <body>
 <h1>WedstijdenForm</h1>
 <h2>${stadium.name}</h2>
-<p>${aantalTickets} tickets werden aangekocht</p>
+
 <table>
     <tr>
         <th>Nr</th>
@@ -35,5 +35,9 @@
         </tr>
     </c:forEach>
 </table>
+<form action='/logout' method='post'>
+    <input type="submit" value="Log out" />
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
 </body>
 </html>

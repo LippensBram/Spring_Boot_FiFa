@@ -14,8 +14,6 @@ public class AankoopTicketValidation implements Validator {
     public void validate(Object target, Errors errors) {
         AankoopTicket aankoopTicket = (AankoopTicket) target;
 
-
-
         int voetbalCode1 = aankoopTicket.getVoetbalCode1();
         int voetbalCode2 = aankoopTicket.getVoetbalCode2();
         if (voetbalCode1 > voetbalCode2) {

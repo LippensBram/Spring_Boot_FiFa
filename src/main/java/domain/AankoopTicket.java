@@ -14,7 +14,11 @@ public class AankoopTicket {
 	@NotNull
 	private int voetbalCode2;
 	
-	public AankoopTicket() {}
+	public AankoopTicket() {
+		setVoetbalCode1(10);
+		setVoetbalCode2(20);
+		setAantalTickets(1);
+	}
 	public AankoopTicket(@Email String email, @Min(1) @Max(25) int aantalTickets, @NotNull int voetbalCode1,
 			@NotNull int voetbalCode2) {
 		this.setEmail(email);

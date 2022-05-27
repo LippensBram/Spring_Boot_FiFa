@@ -1,24 +1,41 @@
 package domain;
 
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 //Aantal tickets beschikbaar per wedstrijd
+@Entity
 public class WedstrijdTicket {
-	
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
     private Wedstrijd wedstrijd;
-    @Min(1)
-    @Max(25)
+
+    public void setWedstrijd(Wedstrijd wedstrijd) {
+        this.wedstrijd = wedstrijd;
+    }
+
     private int tickets; //aantal tickets beschikbaar
     
-    public WedstrijdTicket(Wedstrijd wedstrijd, int tickets) {
+    public WedstrijdTicket(Stadium stadium,Wedstrijd wedstrijd, int tickets) {
+        this.stadium = stadium;
         this.wedstrijd = wedstrijd;
         this.tickets = tickets;
+    }
+
+    public WedstrijdTicket() {
+
     }
 
     public int getTickets() {
         return tickets;
     }
+    public void setTickets(int aantal){this.tickets=aantal;}
     
     public Wedstrijd getWedstrijd() {
         return wedstrijd;
@@ -44,5 +61,16 @@ public class WedstrijdTicket {
 
     public boolean uitverkocht() {
         return tickets == 0;
+    }
+
+    @ManyToOne(optional = false)
+    private Stadium stadium;
+
+    public Stadium getStadium() {
+        return stadium;
+    }
+
+    public void setStadium(Stadium stadium) {
+        this.stadium = stadium;
     }
 }

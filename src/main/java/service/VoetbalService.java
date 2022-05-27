@@ -11,8 +11,8 @@ public interface VoetbalService {
 
 	public List<WedstrijdTicket> getWedstrijdenByStadium(Stadium stadium);
 
-	public WedstrijdTicket getWedstrijd(String id);
+	public WedstrijdTicket getWedstrijd(Long id);
 
-	public int ticketsBestellen(String id, int teBestellen);
+	public int ticketsBestellen(Long id, int teBestellen);
 
 }

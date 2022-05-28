@@ -22,7 +22,7 @@ import java.util.Locale;
 
 @Controller
 @RequestMapping("/fifa")
-@SessionAttributes({"aantalTickets", "uitverkocht", "aantalGekocht"})
+@SessionAttributes({"aantalTickets", "uitverkocht","stadium","wedstrijdTicket"})
 
 public class FifaController {
     @Autowired
@@ -31,6 +31,7 @@ public class FifaController {
     private VoetbalService voetbalService;
     @Autowired
     private AankoopTicketValidation aankoopTicketValidation;
+//    @ModelAttribute("wedstrijdTicket")
 
 
     @GetMapping("/stadium")
@@ -45,7 +46,6 @@ public class FifaController {
     }
     @RequestMapping(value = "/stadium")
     public String onSubmit(@ModelAttribute("stadium") Stadium stadium, Model model){
-        System.out.println(stadium.toString());
         model.addAttribute("wedstrijdenList", voetbalService.getWedstrijdenByStadium(stadium));
 //        model.addAttribute("wedstrijdenList", wedstrijdTicketDao. )
         return "fifa/list";
@@ -71,7 +71,7 @@ public class FifaController {
 //        WedstrijdTicket wedstrijdTicket = voetbalService.getWedstrijd(Long.parseLong(id));
         aankoopTicketValidation.validate(aankoopTicket,result);
         if(result.hasErrors()){
-            model.addAttribute("message", new Message("error", messageSource.getMessage("contact_save_fail", new Object[]{}, locale)));
+//            model.addAttribute("message", new Message("error", messageSource.getMessage("contact_save_fail", new Object[]{}, locale)));
 //            model.addAttribute("wedstrijdTicket",wedstrijdTicket);
             return "fifa/koop";
         }

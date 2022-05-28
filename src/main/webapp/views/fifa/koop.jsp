@@ -17,7 +17,7 @@
 
 <%--@elvariable id="wedstrijd" type=""--%>
 <form:form method="post" modelAttribute="aankoopTicket">
-    <form:errors path="*" cssClass="error"/>
+<%--    <form:errors path="*" cssClass="error"/>--%>
     <p>
         <label>Email:</label>
         <form:input path="email" size="20" />
